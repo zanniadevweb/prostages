@@ -11,10 +11,8 @@ class ProstagesController extends AbstractController
     /**
      * @Route("/", name="prostages_accueil")
      */
-    public function index(): Response
+    public function index()
     {
-        return $this->render('prostages/index.html.twig', [
-            'controller_name' => 'ProstagesController',
-        ]);
+        return new Response('<html><body><h1>Bienvenue sur la page d\'accueil de Prostages</j1></body></html>');
     }
 }
