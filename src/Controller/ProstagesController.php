@@ -13,6 +13,13 @@ class ProstagesController extends AbstractController
      */
     public function index()
     {
-        return new Response('<html><body><h1>Bienvenue sur la page d\'accueil de Prostages</j1></body></html>');
+        return new Response('<html><body><h1>Bienvenue sur la page d\'accueil de Prostages</h1></body></html>');
+    }
+	/**
+     * @Route("/entreprises", name="prostages_entreprises")
+     */
+    public function entreprises()
+    {
+        return new Response('<html><body><h1>Cette page affichera la liste des entreprises proposant un stage</h1></body></html>');
     }
 }
