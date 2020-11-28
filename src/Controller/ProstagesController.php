@@ -22,4 +22,11 @@ class ProstagesController extends AbstractController
     {
         return new Response('<html><body><h1>Cette page affichera la liste des entreprises proposant un stage</h1></body></html>');
     }
+	/**
+     * @Route("/formations", name="prostages_formations")
+     */
+    public function formations()
+    {
+        return new Response('<html><body><h1>Cette page affichera la liste des formations de l\'IUT</h1></body></html>');
+    }
 }
