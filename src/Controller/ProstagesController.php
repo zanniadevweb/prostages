@@ -27,7 +27,7 @@ class ProstagesController extends AbstractController
      */
     public function formations()
     {
-        return new Response('<html><body><h1>Cette page affichera la liste des formations de l\'IUT</h1></body></html>');
+        return $this->render('prostages/formations.html.twig');
     }
 	/**
      * @Route("/stages/{id}", name="prostages_stages")
