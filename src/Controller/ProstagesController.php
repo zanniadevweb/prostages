@@ -20,7 +20,7 @@ class ProstagesController extends AbstractController
      */
     public function entreprises()
     {
-        return new Response('<html><body><h1>Cette page affichera la liste des entreprises proposant un stage</h1></body></html>');
+        return $this->render('prostages/entreprises.html.twig');
     }
 	/**
      * @Route("/formations", name="prostages_formations")
