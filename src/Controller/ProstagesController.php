@@ -34,6 +34,7 @@ class ProstagesController extends AbstractController
      */
     public function stages($id)
     {
-        return new Response("<html><body><h1>Cette page affichera le descriptif du stage ayant pour identifiant $id</h1></body></html>");
+        return $this->render('prostages/stages.html.twig',
+		[ 'id_stages' => $id]);
 	}
 }
