@@ -12,6 +12,9 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        // Création d'un générateur de données Faker en 'français'
+         $faker = \Faker\Factory::create('fr_FR');
+
          $formation = new Formation();
          $formation->setIntitule("DUT Informatique");
          $formation->setEtablissementAccueil("IUT de Bayonne et du Pays Basque");
