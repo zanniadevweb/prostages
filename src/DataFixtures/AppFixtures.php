@@ -30,9 +30,12 @@ class AppFixtures extends Fixture
          $stage->setTitre("Refonte et mise à jour du site web de ProStage");
          $stage->setDomaine("web");
          $stage->setDescription("Etude du site existant - Prise en compte des mises à jour à effectuer");
-         //$refonteProStage->setDuree("");
-         $stage->setDateDebut("11-30-2020");
-         $stage->setDateFin("12-11-2020");
+         $dateDebut = new \Datetime ('30-11-2020'); // Variable qui permet de tester la différence avec la date de fin pour donner la valeur de la durée 
+         $dateFin = new \Datetime ('11-12-2020'); // Variable qui permet de tester la différence avec la date de début pour donne la valeur de la durée 
+         //$dureeStage = $dateFin-$dateDebut; // Variable donnant la valeur de la différence entre dateDebut et dateFin
+         //$stage->setDuree($dureeStage); 
+         $stage->setDateDebut($dateDebut);
+         $stage->setDateFin($dateFin);
          $stage->setEmail("john.doe@johndoe.com");
          
 
