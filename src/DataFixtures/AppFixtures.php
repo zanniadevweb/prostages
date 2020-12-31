@@ -45,11 +45,9 @@ class AppFixtures extends Fixture
              $stage->addFormation($formation);
              $stage->setTitre($faker->jobTitle);
              $stage->setDomaine($faker->randomElement($array = array ('Programmation web','Réseaux','Maintenance informatique', 'Design web', 'Assembleur', 'Programmation bas-niveau', 'Génie Logiciel', 'Maquettage web')));
-             $stage->setDescription($faker->realText($maxNbChars = 40, $indexSize = 2));
-             //$dateDebut = new \Datetime ('30-11-2020'); // Variable qui permet de tester la différence avec la date de fin pour donner la valeur de la durée 
-             //$dateFin = new \Datetime ('11-12-2020'); // Variable qui permet de tester la différence avec la date de début pour donne la valeur de la durée 
-             //$dureeStage = $dateFin-$dateDebut; // Variable donnant la valeur de la différence entre dateDebut et dateFin
-             //$stage->setDuree($dureeStage); 
+             $stage->setDescription($faker->realText($maxNbChars = 40, $indexSize = 2).'jours');
+             $dureeStage = $faker->numberBetween($min = 67, $max = 134).' jours'; // La durée minimum légale des stages à l'IUT (DUT Informatique) est de 2 mois et 6 jours, soit 67 jours. La durée maximum sera ici le double.
+             $stage->setDuree($dureeStage);  
              $stage->setDateDebut($faker->dateTime($max = 'now'));
              $stage->setDateFin($faker->dateTime($max = 'now'));
              $stage->setEmail($faker->companyEmail);
