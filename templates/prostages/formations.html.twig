@@ -8,18 +8,18 @@
 
 <div class="container-fluid">
   <div class="row">
-  
+    	{%for formation in formations%}
 		<div class="col-md-4 col-xs-1 mx-auto">
 			<div class="card">
 				<div class="card-body">
-				  <h5 class="card-title">unIntitule : DUT Informatique</h5>
-				  <p class="card-text">unEtablissementAccueil : IUT de Bayonne et du Pays Basque</p>
-				  <p class="card-text">unNiveau : BAC+2</p>
-				  <p class="card-text">unVilleFormation : Anglet</p>
+				  <h5 class="card-title">Intitule : {{formation.intitule}}</h5>
+				  <p class="card-text">Etablissement d'accueil : {{formation.etablissementAccueil}}</p>
+				  <p class="card-text">Niveau : {{formation.niveau}}</p>
+				  <p class="card-text">Ville de formation : {{formation.villeFormation}}</p>
 				</div>
 			</div>
 		</div>
-		
+		{%endfor%}
     </div>
 </div>
 
