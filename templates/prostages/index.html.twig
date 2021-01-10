@@ -17,10 +17,10 @@
 				  <h5 class="card-title">Titre : {{stage.titre}} </h5>
 				  <p class="card-text">Domaine : {{stage.domaine}}</p>
 				  <p class="card-text">Durée : {{stage.duree}}</p>
-				  <p class="card-text">Dates : {{stage.dateDebut | date("d/m/Y")}}</p>
+				  <p class="card-text">Date de début : {{stage.dateDebut | date("d/m/Y")}}</p>
 				  <p class="card-text">Date de fin : {{stage.dateFin | date("d/m/Y")}}</p>
 				  <p class="card-text">Email : {{stage.email}}</p>
-				  <p class="card-text">Entreprise : </p>
+				  <p class="card-text">Entreprise : {{stage.entreprise.nom}}</p>
 				  <a href="{{path('prostages_stages',{'id' : stage.id})}}" class="btn btn-primary">Plus de détails</a>
 				</div>
 			</div>

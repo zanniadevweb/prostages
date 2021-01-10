@@ -61,7 +61,7 @@ class Stage
     private $entreprise;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Formation::class)
+     * @ORM\ManyToMany(targetEntity=Formation::class, inversedBy="stages")
      */
     private $formations;
 
