@@ -47,11 +47,8 @@ class ProstagesController extends AbstractController
     /**
      * @Route("/entreprise/{id}/stages", name="prostages_entreprises_stage")
      */
-    public function getByEntreprise(EntrepriseRepository $repositoryEntreprise, $id) // La vue affichera la liste des stages proposés par une entreprise
+    public function getByEntreprise(Entreprise $stages) // La vue affichera la liste des stages proposés par une entreprise
     {
-        // Récupérer les informations des stages enregistrés en BD
-        $stages = $repositoryEntreprise->find($id);
-
         // Envoyer les ressources récupérées à la vue chargée de les afficher
         return $this->render('prostages/index.html.twig',
         [ 'stages' => $stages->getStages() ]);
@@ -75,11 +72,8 @@ class ProstagesController extends AbstractController
     /**
      * @Route("/formation/{id}/stages", name="prostages_formations_stage")
      */
-    public function getByFormation(FormationRepository $repositoryFormation, $id) // La vue affichera la liste des stages proposés pour une formation
+    public function getByFormation(Formation $stages) // La vue affichera la liste des stages proposés pour une formation
     {
-        // Récupérer les informations des stages enregistrés en BD
-        $stages = $repositoryFormation->find($id);
-
         // Envoyer les ressources récupérées à la vue chargée de les afficher
         return $this->render('prostages/index.html.twig',
         [ 'stages' => $stages->getStages() ]);
@@ -89,11 +83,8 @@ class ProstagesController extends AbstractController
     /**
      * @Route("/stages/{id}", name="prostages_stages")
      */
-    public function stages(StageRepository $repositoryStage, $id) // La vue stages.html.twig affichera la liste des stages
+    public function stages(Stage $stage) // La vue stages.html.twig affichera la liste des stages
     {
-        // Récupérer les informations détaillées des stages (par l'id) enregistrés en BD
-        $stage = $repositoryStage->find($id);
-
         // Envoyer les ressources récupérées à la vue chargée de les afficher
         return $this->render('prostages/stages.html.twig',
         [ 'stage' => $stage ]);
