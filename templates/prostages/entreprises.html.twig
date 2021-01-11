@@ -2,9 +2,19 @@
 
 {% block title %}Page entreprises{% endblock %}
 
-{% block body %}
+ {% block entete %}
+ 		<div class="card">
+		  <div class="card-header">
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<h1> Cette page affichera la liste des entreprises proposant un stage </h1>
+				</blockquote>
+			</div>
+		  </div>
+		</div>
+ {% endblock %}
 
-<h1> Cette page affichera la liste des entreprises proposant un stage </h1>
+{% block body %}
 
 <div class="container-fluid">
   <div class="row">

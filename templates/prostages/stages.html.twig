@@ -2,8 +2,38 @@
 
 {% block title %}Page stages{% endblock %}
 
+ {% block entete %}
+ 		<div class="card">
+		  <div class="card-header">
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<h1> Cette page affichera le descriptif du stage ayant pour identifiant {{stage.id}} </h1>
+				</blockquote>
+			</div>
+		  </div>
+		</div>
+ {% endblock %}
+
 {% block body %}
 
-<h1> Cette page affichera le descriptif du stage ayant pour identifiant {{stage.id}} </h1>
+<div class="container-fluid">
+  <div class="row">
+			<div class="col-md-4 col-xs-1 mx-auto">
+				<div class="card">
+					<div class="card-body">
+					<img src="https://picsum.photos/300/" class="card-img-top" alt="Image">
+					  <h5 class="card-title">Titre : {{stage.titre}} </h5>
+					  <p class="card-text">Domaine : {{stage.domaine}}</p>
+					  <p class="card-text">Durée : {{stage.duree}}</p>
+					  <p class="card-text">Date de début : {{stage.dateDebut | date("d/m/Y")}}</p>
+					  <p class="card-text">Date de fin : {{stage.dateFin | date("d/m/Y")}}</p>
+					  <p class="card-text">Email : {{stage.email}}</p>
+					  <p class="card-text">Entreprise : {{stage.entreprise.nom}}</p>
+					  <p class="card-text">Description : {{stage.description}}</p>
+					</div>
+				</div>
+			</div>
+    </div>
+</div>
 
 {% endblock %}
