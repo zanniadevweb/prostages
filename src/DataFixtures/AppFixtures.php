@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
              $typeEtablissementAccueil = $faker->randomElement($array = array ('IUT de ', 'Université de '));
              $formation->setEtablissementAccueil($typeEtablissementAccueil.$villeFormation);
              // Génére un numéro de niveau compris entre 2 et 5.
-             $numeroNiveau = $faker->numberBetween($min = 1, $max = 5);
+             $numeroNiveau = $faker->numberBetween($min = 2, $max = 5);
              $formation->setNiveau($faker->regexify('BAC\+'.$numeroNiveau));
              $formation->setVilleFormation($villeFormation);
 
@@ -46,10 +46,12 @@ class AppFixtures extends Fixture
              $stage->setTitre($faker->jobTitle);
              $stage->setDomaine($faker->randomElement($array = array ('Programmation web','Réseaux','Maintenance informatique', 'Design web', 'Assembleur', 'Programmation bas-niveau', 'Génie Logiciel', 'Maquettage web')));
              $stage->setDescription($faker->realText($maxNbChars = 40, $indexSize = 2).'jours');
-             $dureeStage = $faker->numberBetween($min = 67, $max = 134).' jours'; // La durée minimum légale des stages à l'IUT (DUT Informatique) est de 2 mois et 6 jours, soit 67 jours. La durée maximum sera ici le double.
-             $stage->setDuree($dureeStage);  
-             $stage->setDateDebut($faker->dateTime($max = 'now'));
-             $stage->setDateFin($faker->dateTime($max = 'now'));
+             $dureeStage = $faker->numberBetween($min = 67, $max = 134); // La durée minimum légale des stages à l'IUT (DUT Informatique) est de 2 mois et 6 jours, soit 67 jours. La durée maximum sera ici le double.
+             $dureeStagePourDateFin = $dureeStage - 1; // Nécessaire de retrancher un jour pour compenser l'ajout d'un jour ensuite
+             $dureeStageFrancais = $dureeStage.' jours'; // Durée du stage en nombre de jours auquel est accolé le mot ' jours'
+             $stage->setDuree($dureeStageFrancais);  
+             $stage->setDateDebut($faker->unique()->dateTimeBetween($dateDebut = 'now', '+1 days'));  // Date de début qui est supérieure à la date d'aujourd'hui (+1 jour requis au minimum pour ne pas avoir une date antérieure à la date actuelle)
+             $stage->setDateFin($faker->unique()->dateTimeBetween($dateDebut, '+'.$dureeStagePourDateFin.'days')); // Date de fin qui est supérieure à la date de début par une valeur égale à la durée du stage
              $stage->setEmail($faker->companyEmail);
              
 
